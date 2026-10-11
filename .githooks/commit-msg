@@ -1,0 +1,5 @@
+#!/bin/sh
+# Strip Cursor attribution trailers injected into commit messages.
+tmp="$1.tmp"
+grep -viE '^(co-authored-by:[[:space:]]*cursor|made-with:[[:space:]]*cursor)' "$1" > "$tmp" || true
+mv "$tmp" "$1"
